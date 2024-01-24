@@ -5,9 +5,7 @@
 
 touch Dockerfile
 
-$ Dockerfile Example -->
-
-$ Stage 1: Compile and Build angular codebase -->
+$ Dockerfile Example
 
 FROM node:latest as build
 
@@ -19,8 +17,6 @@ RUN npm install --force
 
 RUN npm run build
 
-$ Stage 2: Serve app with nginx server -->
-
 FROM nginx:latest
 
 COPY --from=build /usr/local/app/dist/tagus /usr/share/nginx/html
@@ -29,7 +25,7 @@ EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"] // important !
 
-$ Example end  -->
+$ Example end
 
 # 2. Build and publish to docker hub
 
