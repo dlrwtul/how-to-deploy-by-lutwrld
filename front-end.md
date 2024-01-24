@@ -1,7 +1,7 @@
 
-# -------------- Deploy Front end application -------------- #/
+# #-------------- Deploy Front end application -------------- #/
 
-# Dockerize project
+# 1 Dockerize project
 
 touch Dockerfile
 
@@ -31,7 +31,7 @@ CMD ["nginx", "-g", "daemon off;"] // important !
 
 /------ Example end -------/
 
-# Build and publish to docker hub
+# 2 Build and publish to docker hub
 
 docker build --push -t lutwrld/hospital-management:prod
 
@@ -39,21 +39,21 @@ to run for test : docker run -d -p 8080:80 lutwrld/hospital-management:prod
 
 go to <<http://localhost:8080>
 
-# Go to server using ssh
+# 3 Go to server using ssh
 
 ssh username@your_vps_ip
 
-# Pull docker image from hub
+# 4 Pull docker image from hub
 
 docker pull your_image_name:tag
 
 NB : tap 'docker login'  if credentials are not stored
 
-# Run docker container
+# 5 Run docker container
 
 docker run -d -p host_port:container_port --name your_container_name your_image_name:tag
 
-# Access to the project
+# 6 Access to the project
 
 http://your_vps_ip:host_port
 

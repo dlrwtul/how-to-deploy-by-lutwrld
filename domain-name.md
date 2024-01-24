@@ -1,7 +1,7 @@
 
-# ------------ Domain name Configuration ------------------ #/
+# #------------ Domain name Configuration ------------------ #/
 
-# Connect domain to serveur ip
+# 1 Connect domain to serveur ip
 
 /------ Example LWS VPS Debian server -------/
 
@@ -22,7 +22,7 @@ nb : can take time to be effective
 
 /------ Example end -------/
 
-# create conf file in /etc/nginx/sites-avaliables
+# 2 create conf file in /etc/nginx/sites-avaliables
 
 touch project.conf
 
@@ -64,18 +64,18 @@ server {
 
 <> --------------- end file edit ----------------->
 
-# save changes
+# 3 save changes
 
 sudo nginx -t
 sudo systemctl reload nginx
 
-# allow https through the firewall
+# 4 allow https through the firewall
 
 sudo ufw status
 sudo ufw allow 'Nginx Full'
 sudo ufw delete allow 'Nginx HTTP'
 
-# Configure certificates (SSL)
+# 5 Configure certificates (SSL)
 
 /------ Example in lunix server -------/
 
@@ -114,7 +114,7 @@ IMPORTANT NOTES:
 
 <----------------- Succes Message end -------------->
 
-# verify certbot auto renewal
+# 6 verify certbot auto renewal
 
 sudo systemctl status certbot.time
 
@@ -124,15 +124,15 @@ sudo certbot renew --dry-run
 
 /------ Example end -------/
 
-# Test
+# 7 Test
 
 got to <www.domain.name.com> or domain.name.com
 
-# (If dont run ) restart nginx server ( nb : if problem , verify if apache server is started );
+# 8 (If dont run ) restart nginx server ( nb : if problem , verify if apache server is started );
 
 sudo systemctl restart nginx
 
-# (If persist) reboot server (reren docker containers after reboot)
+# 9 (If persist) reboot server (reren docker containers after reboot)
 
 sudo reboot
 
