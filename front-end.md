@@ -1,13 +1,13 @@
 
 # #-------------- Deploy Front end application -------------- #/
 
-# 1 Dockerize project
+# 1. Dockerize project
 
 touch Dockerfile
 
-/------ Dockerfile Example -------/
+<!-- Dockerfile Example -->
 
-/------Stage 1: Compile and Build angular codebase
+<!-- Stage 1: Compile and Build angular codebase -->
 
 FROM node:latest as build
 
@@ -19,7 +19,7 @@ RUN npm install --force
 
 RUN npm run build
 
-/---------Stage 2: Serve app with nginx server
+<!-- Stage 2: Serve app with nginx server -->
 
 FROM nginx:latest
 
@@ -29,9 +29,9 @@ EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"] // important !
 
-/------ Example end -------/
+<!-- Example end  -->
 
-# 2 Build and publish to docker hub
+# 2. Build and publish to docker hub
 
 docker build --push -t lutwrld/hospital-management:prod
 
@@ -39,21 +39,21 @@ to run for test : docker run -d -p 8080:80 lutwrld/hospital-management:prod
 
 go to <<http://localhost:8080>
 
-# 3 Go to server using ssh
+# 3. Go to server using ssh
 
 ssh username@your_vps_ip
 
-# 4 Pull docker image from hub
+# 4. Pull docker image from hub
 
 docker pull your_image_name:tag
 
 NB : tap 'docker login'  if credentials are not stored
 
-# 5 Run docker container
+# 5. Run docker container
 
 docker run -d -p host_port:container_port --name your_container_name your_image_name:tag
 
-# 6 Access to the project
+# 6. Access to the project
 
 http://your_vps_ip:host_port
 
