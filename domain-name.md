@@ -1,5 +1,5 @@
 
-# #------------------ Domain name Configuration ----------------#/
+# ------------------ Domain name Configuration ----------------/
 
 # 1. Connect domain to serveur ip
 
