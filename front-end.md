@@ -1,5 +1,5 @@
 
-# #-------------- Deploy Front end application -------------- #/
+# /-------------- Deploy Front end application --------------/
 
 # 1. Dockerize project
 
